@@ -1,38 +1,20 @@
-# create-svelte
+# Svelte/Threlte Flow Fields
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A small project aimed at learning Threlte during the Warp2023 hackathon (<https://threlte.xyz/hackathon>).
 
-## Creating a project
+## Objective
 
-If you're seeing this, you've probably already done this step. Congrats!
+Use Threlte for the first time without too much pressure. Mainly interested in testing out a few things on the "WoW! Track", but also I might end up on the self "Aha! Track".
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+>The "Wow! Track" is a playground for innovation, creativity, and jaw-dropping visuals. We invite your to wow us with anything from games, immersive ui/ux prototypes, or a tech or business prototypes. The sky is the limit so we expect you to surprise and delight us!
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+---
+>The "Aha! Track" is where you share the knowledge with the community. What did you miss when you were learning Threlte? Add that example that delights and explains, or a tutorial that gets you set up with the skills for your next project. Let's make Threlte easy and fun to learn!
 
-## Developing
+## Plan
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Simple and clean interactive flow fields using Threlte.
 
-```bash
-npm run dev
+## Expectations
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+I don't expect to finish.
