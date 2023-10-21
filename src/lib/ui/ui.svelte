@@ -4,6 +4,8 @@
 
 
     console.log(Object.entries($controls))
+    
+   
 
     const entries: any = Object.entries($controls)
     const isNotEmpty = entries.length > 0
@@ -55,10 +57,6 @@
             
             break
 
-
-
-
-            
             default:
                 $controls[key] = value
             break;

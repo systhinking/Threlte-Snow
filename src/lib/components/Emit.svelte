@@ -2,6 +2,8 @@
 	import { T, useFrame } from '@threlte/core'
 	import type { Euler, Vector3 } from 'three'
 	import Particles from './Particles.svelte'
+
+	export let count: number
 	
 	const getId = () => {
 		return Math.random().toString(16).slice(2)
@@ -25,8 +27,8 @@
 	let bodies: Body[] = []
 
 	let lastBody: number = 0
-	let frequency:number = 100
-	let longevity = 6000
+	export let frequency:number
+	export let longevity:number
 
 	useFrame((state, delta) => {
 		if (lastBody + frequency < Date.now()) {
@@ -66,7 +68,7 @@
 
 
         <Particles 
-		
+		count={count}
         rangeX={[2, 5]}
         rangeY={[16, 19]}
         rangeZ={[2, 5]}
