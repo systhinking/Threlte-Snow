@@ -1,74 +1,74 @@
 <script lang="ts">
     import { T } from '@threlte/core'
-    import { OrbitControls } from '@threlte/extras'
-    import { Attractor } from '@threlte/rapier'
-    import Particles from './Particles.svelte'
-  import Emit from './Emit.svelte';
-    let count: number = 500
-    let length = 16
-    export const reset = () => {
+    import { OrbitControls, Grid } from '@threlte/extras'
+    import { Collider  } from '@threlte/rapier'
+    import Emit from './Emit.svelte';
+
+    let count: number = 15
+    let length = 8
+    export function reset () {
     count = 0
-    setTimeout(() => (count = 50))
-  }
+    setTimeout(() => (count = 15))
+    }
+
+
+
   </script>
-  
   
   <T.PerspectiveCamera
     makeDefault
-    position={[50, 50, 50]}
-    fov={36}
-    target={[0, 0, 0]}
+    position={[30, 30, 30]}
+    fov={50}
   >
-    <OrbitControls />
+    <OrbitControls 
+    enableDamping 
+    autoRotate
+    target={[4,8,4]}
+    />
   </T.PerspectiveCamera>
   
+
+  
+  <Grid
+  gridSize={[20, 20]}
+  position.y={-4}
+  position.x={4}
+  position.z={4}
+  cellColor={'#46536b'}
+  sectionThickness={0}
+/>
+
   {#each { length } as _h, x}
     {#each { length} as _v, y}
-      {#each {length:8} as _p, z}  
-        {#if x % 2 == 0 && y % 2 == 0}
-        <T.Group position={[x, z*2, y]}>
+      {#each {length:12} as _p, z}  
+        {#if x % 1 == 0 && y % 1 == 0}
+        <T.Group position={[x, z*1.4, y]}>
           <T.Mesh>
-            <T.BoxGeometry args={[.1,.1,.1]} />
+              
+            <Collider
+            shape="ball"
+            args={[Math.random()**1.1+.05]}
+            mass={.5}
+            friction={0}
+         
+          />
             <T.MeshBasicMaterial
               args={[
                 {
                   color: '#ffffff',
-                  opacity: 0.9,
-                  transparent: true
+                  opacity: 0.5,
+                  transparent: false
                 }
               ]}
             />
           </T.Mesh>
-            <Attractor
-            range={Math.random()**2}
-            gravityType={'linear'}
-            strength={-1}
-            position={[0, 0, 0]}
-            />
-            <T.MeshBasicMaterial
-              args={[
-                {
-                  color: 0x00F000
-                
-                }
-              ]}
-            />
-          
         </T.Group>
        
       {/if}
       {/each}
     {/each}
   {/each}
-  
+
 <Emit />
 
-  <!-- <Particles
-  {count}
-  rangeX={[0, 15]}
-  rangeY={[16, 17]}
-  rangeZ={[0, 15]}
-/> 
 
-Math.sin(Math.abs(count - x) * 0.1) * Math.sin(Math.abs(count - y) * 0.1) * 10 +
-                Math.random() * 0.1-->

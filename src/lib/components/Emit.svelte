@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { useFrame } from '@threlte/core'
+	import { T, useFrame } from '@threlte/core'
 	import type { Euler, Vector3 } from 'three'
 	import Particles from './Particles.svelte'
+
 
 	const getId = () => {
 		return Math.random().toString(16).slice(2)
@@ -24,12 +25,12 @@
 
 	let bodies: Body[] = []
 
-	let lastBodyMounted: number = 0
-	let bodyEveryMilliseconds = 100
-	let longevityMilliseconds = 2000
+	let lastBody: number = 0
+	let frequency = 100
+	let longevity = 6000
 
-	useFrame(() => {
-		if (lastBodyMounted + bodyEveryMilliseconds < Date.now()) {
+	useFrame((state, delta) => {
+		if (lastBody + frequency < Date.now()) {
 			const body: Body = {
 				id: getId(),
 				mounted: Date.now(),
@@ -37,12 +38,12 @@
 				rotation: getRandomRotation()
 			}
 			bodies.unshift(body)
-			lastBodyMounted = Date.now()
+			lastBody = Date.now()
 			bodies = bodies
 		}
 		const deleteIds: string[] = []
 		bodies.forEach((body) => {
-			if (body.mounted + longevityMilliseconds < Date.now()) {
+			if (body.mounted + longevity < Date.now()) {
 				deleteIds.push(body.id)
 			}
 		})
@@ -54,13 +55,24 @@
 			})
 			bodies = bodies
 		}
-	})
+	
+  })
+    
+
 </script>
 
 {#each bodies as body (body.id)}
-	  <Particles
-  rangeX={[0, 15]}
-  rangeY={[16, 16]}
-  rangeZ={[0, 15]}
-/>
+	
+    <T.Group>
+
+
+        <Particles
+        rangeX={[2, 5]}
+        rangeY={[16, 19]}
+        rangeZ={[2, 5]}
+		
+      />
+
+    </T.Group>
+
 {/each}
