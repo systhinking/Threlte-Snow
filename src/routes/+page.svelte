@@ -11,7 +11,7 @@
   
   const ui = uiControl({
     debug: false,
-    collier_size: {value: 8, min:4, max: 16, step: 1},
+    collider_size: {value: 8, min:4, max: 16, step: 1},
     particle_size: {value: 0.2, min:0.05, max:.8, step:.05},
     spawn_count: {value: 15, min: 0, max: 50, step: 1},
     spawn_frequency: {value: 100, min:10, max: 200, step:10},
@@ -37,7 +37,10 @@
     <Debug />
     {/if}
       <Scene 
-      length={$ui.collier_size}
+      count={$ui.spawn_count}
+      length={$ui.collider_size}
+      longevity={$ui.longevity}
+      frequency={$ui.frequencyS}
       bind:reset
       
       />
