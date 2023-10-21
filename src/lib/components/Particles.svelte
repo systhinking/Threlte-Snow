@@ -22,10 +22,6 @@
   export let rangeZ: [number, number] = [-1, 1]
 
 
-  
-
- 
-
   const getId = () => {
     return Math.random().toString(16).slice(2)
   }
