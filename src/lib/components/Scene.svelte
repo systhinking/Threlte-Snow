@@ -7,7 +7,7 @@
     
     
     export const reset = () => {
-    count = 0
+    count = 0,
     length = 0
     setTimeout(() => (
     length = 8,
