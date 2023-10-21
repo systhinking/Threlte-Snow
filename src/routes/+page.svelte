@@ -7,7 +7,7 @@
 
   let reset: () => any;
 
-  let length
+
   
   const ui = uiControl({
     debug: false,

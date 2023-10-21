@@ -11,10 +11,10 @@
     setTimeout(() => (
     length = 8))
     }
-
     
-
-    export let length: number
+    
+   
+    export let length: number = 8
 
 
   </script>
