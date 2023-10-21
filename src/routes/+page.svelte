@@ -5,48 +5,40 @@
   import Scene from '$lib/components/Scene.svelte'
   import { World, Debug } from '@threlte/rapier'
 
-
-
-
   let reset: () => any;
+
+  let length
   
   const ui = uiControl({
-    
-    particle_size: 0.2,
     debug: false,
-    range: {value: 0, min: 0, max: 100, step: 0.1},
-    count: 50,
-  
+    collier_size: {value: 8, min:4, max: 16, step: 1},
+    particle_size: {value: 0.2, min:0.05, max:.8, step:.05},
+    spawn_count: {value: 15, min: 0, max: 50, step: 1},
+    spawn_frequency: {value: 100, min:10, max: 200, step:10},
+	  particle_longevity: {value: 6000, min: 1000, max: 20000, step: 1000}
     
   })
 
- 
+
 </script>
 
-<button class="reset_btn" on:click={()=>reset()}>reset</button>
+
 <div  class="ui">
-
-  <UI  controls = {ui}/>
-
-
-<pre class="pre">
-  {JSON.stringify($ui, null, 2)}
-</pre>
-
+  <button class="reset_btn" on:click={()=>reset()}>reset</button>
+  <UI controls = {ui}/>
 </div>
 
 
 <div class="main">
   <Canvas >
-    
     <World
     >
-  
     {#if $ui.debug}
     <Debug />
     {/if}
-  
-      <Scene bind:reset
+      <Scene 
+      length={$ui.collier_size}
+      bind:reset
       
       />
     </World>
@@ -56,30 +48,26 @@
 
   
 
-
-
 <style>
   :global(body) {
     margin: 0;
+    background: rgb(13, 19, 32);
   }
 
   .main {
     width: 100vw;
     height: 100vh;
-    background: rgb(13, 19, 32);
     background: linear-gradient(180deg, rgba(13, 19, 32, 1) 0%, rgba(8, 12, 21, 1) 100%);
   }
 
-  .reset_btn{
-    
-  }
-  .ui {
-    position: fixed;
+
+
+
+  .reset_btn {
     display: flex;
+    position: fixed;
   }
+  
 
 
-  .pre {
-    color: azure;
-  }
 </style>

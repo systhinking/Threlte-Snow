@@ -19,11 +19,30 @@
     }
 
     function updateControls(e: Event){
-        let { value, type, dataset, checked, step, min, max, popover} = e.target as HTMLInputElement
+        let { value, type, dataset, checked, step, min, max} = e.target as HTMLInputElement
        
         let key = dataset.key!
 
         switch (type) {
+
+            case 'range':
+                if(e.type === 'wheel') {
+
+                    let direction = (e as WheelEvent).deltaY < 0 ? 'up' : 'down'
+
+                    if (direction === 'up') {
+                        $controls[key].value < max && ($controls[key].value += +step)
+                    } else {
+                        $controls[key].value > min && ($controls[key].value -= +step)
+                    }
+
+
+                } else {
+                    $controls[key].case = +value
+                }
+            
+            
+            break
 
 
             case 'checkbox':
@@ -35,6 +54,9 @@
                 $controls[key] = +value
             
             break
+
+
+
 
             
             default:
@@ -57,7 +79,7 @@
         {#each entries as [label, value]}
             {#if is.number(value)}
                 <label>
-                    {label}
+                    {label} 
                     <input 
                     on:change={updateControls} 
                     on:wheel={updateControls} 
@@ -88,9 +110,10 @@
         {/if}
         {#if is.range(value)}
         <label>
-            {label}
+            {label} 
             <input 
             on:input={updateControls} 
+            on:wheel={updateControls}
             value={$controls[label].value} 
             min={$controls[label].min} 
             max={$controls[label].max} 
@@ -128,19 +151,40 @@
 </div>
 <style>
     .ui {
-        display: flex;
-        position: fixed;
-        background-color: #0C111D;
+        display: grid;
+        position: absolute;
+        top: 40px;
+        background-color: #0c111d75;
         color: aliceblue;
         padding: 2px;
         font-size: x-small;
+        gap: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.425);
+        border-radius: 5px;
+       
+        & input:not([type="checkbox"]) {
+            width: 80px;
+            height: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        & label {
+            display: grid;
+            grid-template-columns: repeat(2, .1fr);
+            gap: 2rem;
+            align-items: center;
+            justify-content: space-around;
+            font-weight: 500;
+
+        
+        }
+
+
+    
     
     }
 
-    input {
-        width: 40px;
-       
-    }
 
   
 

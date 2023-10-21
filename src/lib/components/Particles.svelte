@@ -16,10 +16,11 @@
   import { MeshBasicMaterial, SphereGeometry, Vector3, Color  } from 'three'
   import { linear } from 'svelte/easing';
 
-  export let count: number = 10
+  export let count: number = 20
   export let rangeX: [number, number] = [-1, 1]
   export let rangeY: [number, number] = [-1, 1]
   export let rangeZ: [number, number] = [-1, 1]
+
 
 
   const getId = () => {

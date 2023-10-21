@@ -2,8 +2,7 @@
 	import { T, useFrame } from '@threlte/core'
 	import type { Euler, Vector3 } from 'three'
 	import Particles from './Particles.svelte'
-
-
+	
 	const getId = () => {
 		return Math.random().toString(16).slice(2)
 	}
@@ -26,7 +25,7 @@
 	let bodies: Body[] = []
 
 	let lastBody: number = 0
-	let frequency = 100
+	let frequency:number = 100
 	let longevity = 6000
 
 	useFrame((state, delta) => {
@@ -66,7 +65,8 @@
     <T.Group>
 
 
-        <Particles
+        <Particles 
+		
         rangeX={[2, 5]}
         rangeY={[16, 19]}
         rangeZ={[2, 5]}

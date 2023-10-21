@@ -4,18 +4,18 @@
     import { Collider  } from '@threlte/rapier'
     import Emit from './Emit.svelte';
 
-    
+
     
     export const reset = () => {
-    count = 0,
     length = 0
     setTimeout(() => (
-    length = 8,
-    count = 15))
+    length = 8))
     }
 
-    let count: number = 15
-    let length: number = 8
+    
+
+    export let length: number
+
 
   </script>
   
