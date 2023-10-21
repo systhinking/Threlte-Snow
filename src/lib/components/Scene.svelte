@@ -13,7 +13,7 @@
     }
 
     
-    export let count: number
+    export let count: number 
     export let length: number
     export let longevity: number
     export let frequency: number

@@ -4,6 +4,8 @@
 
 
     console.log(Object.entries($controls))
+    
+   
 
     const entries: any = Object.entries($controls)
     const isNotEmpty = entries.length > 0
