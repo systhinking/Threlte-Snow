@@ -15,6 +15,7 @@
     }
 
     let count: number = 15
+    let length: number = 8
 
   </script>
   
