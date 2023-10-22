@@ -4,18 +4,13 @@
     import { Collider  } from '@threlte/rapier'
     import Emit from './Emit.svelte';
 
-
-    
     export const reset = () => {
     length = 0
  
     setTimeout(() => (
-    length = 8
-
-))
+    length = 8))
     }
     
-
     export let length: number
     export let count: number
     export let longevity: number 
@@ -26,10 +21,6 @@
     export let maxY: number 
     export let minZ: number 
     export let maxZ: number 
-
-    
-
-
 
   </script>
   
@@ -45,8 +36,6 @@
     target={[4,8,4]}
     />
   </T.PerspectiveCamera>
-  
-
   
   <Grid
   gridSize={[20, 20]}
@@ -98,8 +87,6 @@ maxZ={maxZ}
 count={count}
 longevity={longevity}
 frequency={frequency}
-
-
 />
 
 

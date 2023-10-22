@@ -21,22 +21,18 @@
     spawn_range_maxZ: {value: 5, min: 1, max:10, step:1}
   })
 
-
 </script>
-
 
 <div  class="ui">
   <button class="reset_btn" on:click={()=>reset()}>reset colliders</button>
   <UI controls = {ui}/>
 </div>
 
-<pre class="pre">
+<!-- <pre class="pre">
   {JSON.stringify($ui,null,2)}
-</pre>
-
+</pre> -->
 
 <div class="main">
- 
   <Canvas >
     <World>
     {#if $ui.display_colliders}
@@ -59,38 +55,28 @@
   </Canvas>
 </div>
 
-  
-
 <style>
   :global(body) {
     margin: 0;
     background: rgb(13, 19, 32);
   }
-
   .main {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(180deg, rgba(13, 19, 32, 1) 0%, rgba(8, 12, 21, 1) 100%);
+    background: linear-gradient(180deg, rgb(3, 5, 8) 0%, rgba(8, 12, 21, 1) 100%);
   }
-
-
-  .pre {
+  /* .pre {
     position: fixed;
     display: flex;
     top:2rem;
     left: 100rem;
     color: azure;
-  }
-
-
+  } */
   .reset_btn {
     top: 3rem;
     left: 5rem;
     display: flex;
     position: fixed;
-   
   }
   
-
-
 </style>

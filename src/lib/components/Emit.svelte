@@ -2,10 +2,21 @@
 	import { T, useFrame } from '@threlte/core'
 	import type { Euler, Vector3 } from 'three'
 	import Particles from './Particles.svelte'
-
-	export let count: any
-	 
 	
+	export let count: any
+	export let frequency:number
+	export let longevity:number
+	export let minX: number
+	export let maxX: number
+	export let minY: number
+	export let maxY: number
+	export let minZ: number
+	export let maxZ: number
+  
+
+	let bodies: Body[] = []
+	let lastBody: number = 0
+
 	const getId = () => {
 		return Math.random().toString(16).slice(2)
 	}
@@ -24,12 +35,6 @@
 		position: Parameters<Vector3['set']>
 		rotation: Parameters<Euler['set']>
 	}
-
-	let bodies: Body[] = []
-
-	let lastBody: number = 0
-	export let frequency:number
-	export let longevity:number
 
 	useFrame((state, delta) => {
 		if (lastBody + frequency < Date.now()) {
@@ -57,33 +62,18 @@
 			})
 			bodies = bodies
 		}
-	
-  })
-
-  export let minX: number
-  export let maxX: number
-  export let minY: number
-  export let maxY: number
-  export let minZ: number
-  export let maxZ: number
-  
+  	})
 
 </script>
 
 {#each bodies as body (body.id)}
 	
     <T.Group>
-
-
         <Particles 
-		
 		count={count}
         rangeX={[minX, maxX]}
         rangeY={[minY, maxY]}
         rangeZ={[minZ, maxZ]}
-		
       />
-
     </T.Group>
-
 {/each}

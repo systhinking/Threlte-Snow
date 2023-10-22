@@ -2,11 +2,6 @@
 
     export let controls
 
-
-    // console.log(Object.entries($controls)) 
-    
-   
-
     const entries: any = Object.entries($controls)
     const isNotEmpty = entries.length > 0
 
@@ -53,12 +48,9 @@
             break;
         }
 
-
-        // console.dir(target);
     }
 
     let container: HTMLElement;
-
 
 </script>
 <div bind:this={container} >
@@ -78,55 +70,52 @@
                 </label>
             {/if}
             {#if is.boolean(value)}
-            <label>
-                {label}
-                <input 
-                on:change={updateControls} 
-                checked={$controls[label]} 
-                data-key={label} 
-                type='checkbox' />
-            </label>
-        {/if}
-        {#if is.text(value)}
-        <label>
-            {label}
-            <input 
-            on:input={updateControls} 
-            value={$controls[label]} 
-            data-key={label} 
-            type='text' />
-        </label>
-        {/if}
-        {#if is.range(value)}
-        <label>
-            {label} 
-            <input 
-            on:input={updateControls} 
-            on:wheel={updateControls}
-            value={$controls[label].value} 
-            min={$controls[label].min} 
-            max={$controls[label].max} 
-            step={$controls[label].step} 
-            data-key={label} 
-            type="range" />
-        </label>
-        {/if}
-        {#if is.color(value)}
-        <label>
-            {label}
-            <input 
-            on:input={updateControls} 
-            {value}
-            data-key={label} 
-            type='color' />
-        </label>
-        {/if}
-
+                <label>
+                    {label}
+                    <input 
+                    on:change={updateControls} 
+                    checked={$controls[label]} 
+                    data-key={label} 
+                    type='checkbox' />
+                </label>
+            {/if}
+            {#if is.text(value)}
+                <label>
+                    {label}
+                    <input 
+                    on:input={updateControls} 
+                    value={$controls[label]} 
+                    data-key={label} 
+                    type='text' />
+                </label>
+            {/if}
+            {#if is.range(value)}
+                <label>
+                    {label} 
+                    <input 
+                    on:input={updateControls} 
+                    on:wheel={updateControls}
+                    value={$controls[label].value} 
+                    min={$controls[label].min} 
+                    max={$controls[label].max} 
+                    step={$controls[label].step} 
+                    data-key={label} 
+                    type="range" />
+                </label>
+            {/if}
+            {#if is.color(value)}
+                <label>
+                    {label}
+                    <input 
+                    on:input={updateControls} 
+                    {value}
+                    data-key={label} 
+                    type='color' />
+                </label>
+            {/if}
         {/each}
     </div>
 {/if}
-
-    
 
 </div>
 <style>
@@ -142,14 +131,12 @@
         gap: 10px;
         border: 1px solid rgba(255, 255, 255, 0.425);
         border-radius: 5px;
-       
         & input:not([type="checkbox"]) {
             width: 80px;
             height: 20px;
             text-align: center;
             cursor: pointer;
         }
-
         & label {
             display: grid;
             grid-template-columns: repeat(2, .1fr);
@@ -157,17 +144,7 @@
             align-items: center;
             justify-content: space-around;
             font-weight: 500;
-
-        
         }
-
-
-    
-    
     }
-
-
-  
-
 
 </style>

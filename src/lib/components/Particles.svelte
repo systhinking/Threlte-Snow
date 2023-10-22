@@ -2,12 +2,10 @@
   lang="ts"
   context="module"
 > 
-
   export let particle_size: number = 0.03
 
   const geometry = new SphereGeometry(particle_size)
   const material = new MeshBasicMaterial()
-
 
 </script>
 
@@ -21,8 +19,6 @@
   export let rangeX: [number, number] = [-1, 1]
   export let rangeY: [number, number] = [-1, 1]
   export let rangeZ: [number, number] = [-1, 1]
-
-
 
   const getId = () => {
     return Math.random().toString(16).slice(2)
@@ -53,8 +49,6 @@
 
   $: bodies = generateBodies(count)
 
-
-
   let color1 = new Color()
   let color2 = new Color()
   let color3 = new Color()
@@ -68,7 +62,6 @@
   new Color(0x1a9cb8),
   new Color(0x1a94b8),
   new Color(0x1a8cb8)
-
 ];
 
   const gradientCycleTime = 10000;
@@ -80,7 +73,6 @@
   function smooth(t) {
     return linear(t)
   }
-
   const smootht = smooth(t);
 
   useFrame(() => {
@@ -88,17 +80,12 @@
     color2 = colors[gradientIndex + 1]
     color3.lerpColors(color1, color2, smootht);
     material.color.copy(color3);
-   
-  
   })
 
 </script>
 
-
 {#each bodies as body (body.id)}
-
 <T.Group position={body.position}>
-   
     <RigidBody
     gravityScale={4}
     linearDamping={10}
@@ -112,15 +99,10 @@
         mass={20}
         friction={0}
         contactForceEventThreshold={0}
-        
       />
       <T.Mesh
         {geometry}
         {material}/>
-
     </RigidBody>
-
   </T.Group>
 {/each}
-
-
