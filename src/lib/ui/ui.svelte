@@ -3,7 +3,7 @@
     export let controls
 
 
-    console.log(Object.entries($controls))
+    // console.log(Object.entries($controls)) 
     
    
 
@@ -13,11 +13,9 @@
     const is = {
         number: (value: any) => typeof value === 'number',
         boolean: (value: any) => typeof value === 'boolean',
-        text: (value: any) => typeof value === 'string' && !value.startsWith('#') && !value.startsWith('0x'),
-        color: (value: any) => typeof value === 'string' && value.startsWith('#') && value.startsWith('0x'),
+        text: (value: any) => typeof value === 'string' && !value.startsWith('#'),
+        color: (value: any) => typeof value === 'string' && value.startsWith('#'),
         range: (value: any) => typeof value === 'object'
-  
-        
     }
 
     function updateControls(e: Event){
@@ -37,28 +35,21 @@
                     } else {
                         $controls[key].value > min && ($controls[key].value -= +step)
                     }
-
-
                 } else {
-                    $controls[key].case = +value
+                    $controls[key].value = +value
                 }
-            
-            
             break
-
 
             case 'checkbox':
                 $controls[key] = checked
-
             break
 
             case 'number':
                 $controls[key] = +value
-            
             break
 
             default:
-                $controls[key] = value
+                $controls[key] = +value
             break;
         }
 

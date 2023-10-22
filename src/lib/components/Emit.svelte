@@ -4,6 +4,7 @@
 	import Particles from './Particles.svelte'
 
 	export let count: any
+	 
 	
 	const getId = () => {
 		return Math.random().toString(16).slice(2)
@@ -68,6 +69,7 @@
 
 
         <Particles 
+		
 		count={count}
         rangeX={[2, 5]}
         rangeY={[16, 19]}

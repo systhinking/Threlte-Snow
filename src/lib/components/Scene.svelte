@@ -13,10 +13,10 @@
     }
     
 
-    export let length: any
-    export let count: any 
-    export let longevity: any
-    export let frequency: any
+    export let length: number
+    export let count: number
+    export let longevity: number 
+    export let frequency: number 
 
 
   </script>
@@ -76,6 +76,7 @@
   {/each}
 
 <Emit 
+
 count={count}
 longevity={longevity}
 frequency={frequency}
