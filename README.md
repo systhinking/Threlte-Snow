@@ -1,4 +1,4 @@
-# Svelte/Threlte Flow Fields
+# Svelte/Threlte Particle Physics
 
 A small project aimed at learning Threlte during the Warp2023 hackathon (<https://threlte.xyz/hackathon>).
 
@@ -12,11 +12,11 @@ Simple and clean interactive gravity based flow fields, or maybe water simulator
 
 ## Expectations
 
-I don't expect to finish.
+I don't expect to finish, but learn.
 
 ## Current Functionality
 
-Physics based simulator, wanted to play with physics and I enjoy flow fields. I did also try to add in Attractors, but they were way too laggy.
+Physics based particle simulator, wanted to play with physics and I enjoy flow fields. I did also try to add in Attractors, but they were way too laggy. Did not get to make the particle size tunable to a user, or get other physics based UI controls baked in.
 Light UI on the left, with some ranges.
 
 - "reset colliders": (*find your perfect scene*) Button randomizes the sizes of the colliders.
@@ -24,4 +24,5 @@ Light UI on the left, with some ranges.
 - "spawn_count": <Mark>(*The laggy one*)</Mark> Range that scales the number of spawned in particles, each being its own Rigid Body + Collider w/ a mesh. The color of the mesh does cycle awkwardly. Wanted to do more opacity tweaking.
 - "spawn_frequency": (*lower is faster*) Range related to how quickly the particles are emitted, longer the range is the more time in between spawns.
 - "particle_longevity": (*limits*) Range that dictates how long the particles will last.
+- "spawn_range_*: min/max in x,y,x ranges, just to play with where you can make it snow.
   
