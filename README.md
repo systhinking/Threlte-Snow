@@ -16,10 +16,12 @@ I don't expect to finish.
 
 ## Current Functionality
 
-Right now only the reset and debug aspect of the UI work.
-The reset button currently resets the collider layout/generation. Size varies on layout.
-The debug checkmark is simply to show the colliders, since default = invisible.
+Physics based simulator, wanted to play with physics and I enjoy flow fields. I did also try to add in Attractors, but they were way too laggy.
+Light UI on the left, with some ranges.
 
-## Indented
-
-I meant for the UI to control various values, like collider size, which is just length of each side of the footprint (height gets a little crazy to do). Size of the particles, spawn rate and how long they last to start. Was going to get more UI fun stuff in there like gravity, and friction, etc.
+- "reset colliders": (*find your perfect scene*) Button randomizes the sizes of the colliders.
+- "collider_size": (*because why not*) Range scales the length and width of the collider grouping, skewed to one side a little, in case you like waterfalls.
+- "spawn_count": <Mark>(*The laggy one*)</Mark> Range that scales the number of spawned in particles, each being its own Rigid Body + Collider w/ a mesh. The color of the mesh does cycle awkwardly. Wanted to do more opacity tweaking.
+- "spawn_frequency": (*lower is faster*) Range related to how quickly the particles are emitted, longer the range is the more time in between spawns.
+- "particle_longevity": (*limits*) Range that dictates how long the particles will last.
+  

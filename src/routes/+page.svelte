@@ -8,20 +8,26 @@
   let reset: () => any;
 
   const ui = uiControl({
-    debug: false,
-    collider_size: {value: 8, min:4, max: 16, step: 1},
+    display_colliders: false,
+    collider_size: {value: 8, min:4, max: 12, step: 1},
     spawn_count: {value: 20, min: 0, max: 50, step: 1},
-    spawn_frequency: {value: 100, min:10, max: 200, step:10},
-	  particle_longevity: {value: 4000, min: 1000, max: 7000, step: 1000}
-    
+    spawn_frequency: {value: 200, min:1, max: 500, step:1},
+	  particle_longevity: {value: 4000, min: 1000, max: 6000, step: 1000},
+    spawn_range_minX: {value: 2, min: 1, max:10, step:1},
+    spawn_range_maxX: {value: 5, min: 1, max:10, step:1},
+    spawn_range_minY: {value: 16, min: 14, max:18, step:1},
+    spawn_range_maxY: {value: 19, min: 10, max:25, step:1},
+    spawn_range_minZ: {value: 2, min: 1, max:10, step:1},
+    spawn_range_maxZ: {value: 5, min: 1, max:10, step:1}
   })
- // particle_size: {value: 0.2, min:0.05, max:.8, step:.05},
+
+
 </script>
 
 
 <div  class="ui">
-  <button class="reset_btn" on:click={()=>reset()}>reset</button>
-
+  <button class="reset_btn" on:click={()=>reset()}>reset colliders</button>
+  <UI controls = {ui}/>
 </div>
 
 <pre class="pre">
@@ -29,12 +35,11 @@
 </pre>
 
 
-
 <div class="main">
-  <UI controls = {ui}/>
+ 
   <Canvas >
     <World>
-    {#if $ui.debug}
+    {#if $ui.display_colliders}
     <Debug />
     {/if}
       <Scene 
@@ -42,6 +47,12 @@
       length={$ui.collider_size.value}
       longevity={$ui.particle_longevity.value}
       frequency={$ui.spawn_frequency.value}
+      minX={$ui.spawn_range_minX.value}
+      maxX={$ui.spawn_range_maxX.value}
+      minY={$ui.spawn_range_minY.value}
+      maxY={$ui.spawn_range_maxY.value}
+      minZ={$ui.spawn_range_minZ.value}
+      maxZ={$ui.spawn_range_maxZ.value}
       bind:reset
       />
     </World>
@@ -66,12 +77,15 @@
   .pre {
     position: fixed;
     display: flex;
-    padding-top: 200px;
+    top:2rem;
+    left: 100rem;
     color: azure;
   }
 
 
   .reset_btn {
+    top: 3rem;
+    left: 5rem;
     display: flex;
     position: fixed;
    

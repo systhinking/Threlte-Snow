@@ -59,7 +59,14 @@
 		}
 	
   })
-    
+
+  export let minX: number
+  export let maxX: number
+  export let minY: number
+  export let maxY: number
+  export let minZ: number
+  export let maxZ: number
+  
 
 </script>
 
@@ -71,9 +78,9 @@
         <Particles 
 		
 		count={count}
-        rangeX={[2, 5]}
-        rangeY={[16, 19]}
-        rangeZ={[2, 5]}
+        rangeX={[minX, maxX]}
+        rangeY={[minY, maxY]}
+        rangeZ={[minZ, maxZ]}
 		
       />
 

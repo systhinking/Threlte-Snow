@@ -133,7 +133,8 @@
     .ui {
         display: grid;
         position: absolute;
-        top: 40px;
+        top: 5rem;
+        left: 5rem;
         background-color: #0c111d75;
         color: aliceblue;
         padding: 2px;

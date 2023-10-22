@@ -1,0 +1,4 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Q\"collider_size\" range scales the length and width of the collider grouping, skewed to one side a little, incase you like waterfalls.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qrandomize Colliders Button randomizes the sizes of the colliders.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Q\"collider_size\" range scales the length and width of the collider grouping, skewed to one side a little, in case you like waterfalls.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Q\"randomize colliders\": Button randomizes the sizes of the colliders.\\E$"}

@@ -8,8 +8,11 @@
     
     export const reset = () => {
     length = 0
+ 
     setTimeout(() => (
-    length = 8))
+    length = 8
+
+))
     }
     
 
@@ -17,6 +20,15 @@
     export let count: number
     export let longevity: number 
     export let frequency: number 
+    export let minX: number 
+    export let maxX: number 
+    export let minY: number 
+    export let maxY: number 
+    export let minZ: number 
+    export let maxZ: number 
+
+    
+
 
 
   </script>
@@ -29,6 +41,7 @@
     <OrbitControls 
     enableDamping 
     autoRotate
+    
     target={[4,8,4]}
     />
   </T.PerspectiveCamera>
@@ -76,7 +89,12 @@
   {/each}
 
 <Emit 
-
+minX={minX}
+maxX={maxX}
+minY={minY}
+maxY={maxY}
+minZ={minZ}
+maxZ={maxZ}
 count={count}
 longevity={longevity}
 frequency={frequency}

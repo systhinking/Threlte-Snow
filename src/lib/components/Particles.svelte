@@ -60,13 +60,18 @@
   let color3 = new Color()
   
   const colors = [
-  new Color(0x00ffff), 
-  new Color(0x000fff),
-  new Color(0x00ffff)
+  new Color(0x1a84b8), 
+  new Color(0x1a8cb8),
+  new Color(0x1a94b8),
+  new Color(0x1a9cb8),
+  new Color(0x1aa4b8),
+  new Color(0x1a9cb8),
+  new Color(0x1a94b8),
+  new Color(0x1a8cb8)
 
 ];
 
-  const gradientCycleTime = 20000;
+  const gradientCycleTime = 10000;
   const currentTime = Date.now(); 
   const gradientIndex = Math.floor((currentTime % gradientCycleTime) / gradientCycleTime * (colors.length - 1));
   const t = (currentTime % gradientCycleTime) / gradientCycleTime;
@@ -80,7 +85,7 @@
 
   useFrame(() => {
     color1 = colors[gradientIndex]
-    color2 = colors[gradientIndex+1]
+    color2 = colors[gradientIndex + 1]
     color3.lerpColors(color1, color2, smootht);
     material.color.copy(color3);
    
