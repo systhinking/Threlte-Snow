@@ -12,11 +12,11 @@
     length = 8))
     }
     
-    
-    export let count: number 
-    export let length: number
-    export let longevity: number
-    export let frequency: number
+
+    export let length: any
+    export let count: any 
+    export let longevity: any
+    export let frequency: any
 
 
   </script>

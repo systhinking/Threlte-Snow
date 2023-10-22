@@ -4,12 +4,10 @@
   import { Canvas } from '@threlte/core'
   import Scene from '$lib/components/Scene.svelte'
   import { World, Debug } from '@threlte/rapier'
-  import Particles from '$lib/components/Particles.svelte';
-  import { onMount } from 'svelte';
 
   let reset: () => any;
 
-  let length
+
   
   const ui = uiControl({
     debug: false,
@@ -22,10 +20,6 @@
   })
 
     
-  onMount(() => {
-		console.log($ui.spawn_count.value);
-	});
-
   function handleTest() {
     console.log($ui.spawn_count.value);
   }
@@ -35,8 +29,8 @@
 
 
 <div  class="ui">
-  <!-- <button class="reset_btn" on:click={()=>reset()}>reset</button> -->
-  <button class="reset_btn" on:click={handleTest}>debug</button>
+  <button class="reset_btn" on:click={()=>reset()}>reset</button>
+
   <UI controls = {ui}/>
 </div>
 
@@ -52,6 +46,7 @@
     <Debug />
     {/if}
       <Scene 
+      ui={$ui}
       count={$ui.spawn_count}
       length={$ui.collider_size}
       longevity={$ui.particle_longevity}
