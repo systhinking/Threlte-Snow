@@ -3,7 +3,7 @@
 	import type { Euler, Vector3 } from 'three'
 	import Particles from './Particles.svelte'
 
-	export let count: number
+	export let count: any
 	
 	const getId = () => {
 		return Math.random().toString(16).slice(2)

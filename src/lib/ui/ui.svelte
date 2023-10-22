@@ -15,8 +15,8 @@
         boolean: (value: any) => typeof value === 'boolean',
         text: (value: any) => typeof value === 'string' && !value.startsWith('#') && !value.startsWith('0x'),
         color: (value: any) => typeof value === 'string' && value.startsWith('#') && value.startsWith('0x'),
-        range: (value: any) => typeof value === 'object',
-        button: (value: any) => typeof value === 'function'
+        range: (value: any) => typeof value === 'object'
+  
         
     }
 
@@ -130,16 +130,7 @@
             type='color' />
         </label>
         {/if}
-        {#if is.button(value)}
-        <label>
-            {label}
-            <input 
-            on:click={updateControls} 
-            {value}
-            data-key={label} 
-            type='button' />
-        </label>
-        {/if}
+
         {/each}
     </div>
 {/if}

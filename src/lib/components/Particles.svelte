@@ -17,7 +17,7 @@
   import { MeshBasicMaterial, SphereGeometry, Vector3, Color  } from 'three'
   import { linear } from 'svelte/easing';
 
-  export let count: number
+  export let count: any
   export let rangeX: [number, number] = [-1, 1]
   export let rangeY: [number, number] = [-1, 1]
   export let rangeZ: [number, number] = [-1, 1]
